@@ -1,7 +1,7 @@
-from Static_Functions import working_with_dates as dt
-from Static_Functions.Processing_Stats import findlist
-from Static_Functions.working_with_dates import parse_date_from_file
-from Static_Functions.Writing_Analysis_Files import path
+from Instagram_Automation_Bot.Static_Functions import working_with_dates as dt
+from Instagram_Automation_Bot.Static_Functions.Processing_Stats import findlist
+from Instagram_Automation_Bot.Static_Functions.working_with_dates import parse_date_from_file
+from Instagram_Automation_Bot.Static_Functions.Writing_Analysis_Files import path
 import os
 
 def filter_stat(stat):

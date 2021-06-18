@@ -1,18 +1,17 @@
 
-from Static_Functions import Filtering_Information,Writing_Analysis_Files,Processing_Stats
+from Instagram_Automation_Bot.Static_Functions import Filtering_Information,Writing_Analysis_Files,Processing_Stats
 from random import choice,uniform
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
+
 from time import perf_counter,sleep
-from Static_Functions.Processing_Stats import followed_back, order_accounts,risk_evaluation
-from Static_Functions import bot_commands
+from Instagram_Automation_Bot.Static_Functions.Processing_Stats import followed_back, order_accounts,risk_evaluation
+from Instagram_Automation_Bot.Static_Functions import bot_commands
 from selenium import webdriver
 from datetime import datetime
 
-from bot_functions import maintenance_and_errors as maerror
-from bot_functions import scraping_data
-from bot_functions import user_actions
-from bot_functions import utils
+from Instagram_Automation_Bot.bot_functions import maintenance_and_errors as maerror
+from Instagram_Automation_Bot.bot_functions import scraping_data
+from Instagram_Automation_Bot.bot_functions import user_actions
+from Instagram_Automation_Bot.bot_functions import utils
 import os
 
 
@@ -40,7 +39,7 @@ class instabot:
                 options.add_argument('--disable-dev-shm-usage')
                 options.add_argument('--no-sandbox')
 
-            self.browser = webdriver.Chrome(executable_path="chromedriver\chromedriver.exe",
+            self.browser = webdriver.Chrome(executable_path="Instagram_Automation_Bot\chromedriver\chromedriver.exe",
                                             options=options)
 
             # We have to create a separate ActionChains object each time we need to use ActionChains. This is due to

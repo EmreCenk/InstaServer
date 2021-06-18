@@ -2,7 +2,7 @@ from time import sleep, perf_counter
 from random import randint, uniform
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
-from Static_Functions import Filtering_Information
+from Instagram_Automation_Bot.Static_Functions import Filtering_Information
 def signin(self):
 
 

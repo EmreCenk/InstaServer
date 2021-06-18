@@ -1,6 +1,6 @@
 from time import perf_counter, sleep
 from random import uniform
-from Static_Functions import Filtering_Information
+from Instagram_Automation_Bot.Static_Functions import Filtering_Information
 
 def number_of_posts_followers_and_following(self, forwho):
     """returns an array with 3 integers in it. The format is : [numberofposts, followernumber, followingnumber]"""
