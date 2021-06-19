@@ -29,15 +29,17 @@ def remove_line(file_path: str, index: int, separator_character: str = "\n"):
 
     return new_text
 
-def get_parsed_cwd():
+def get_parsed_cwd(parent_directory = "InstaServer"):
     working_directory = os.getcwd().split("\ "[:-1])
     final_dir = ""
     for d in working_directory:
         final_dir += d +"\ "[:-1]
-        if d == "InstaServer":
+        if d == parent_directory:
             break
 
     return final_dir[:-1]
+
+
 def update_followers(username, new_follower_list):
 
     backslash = r"\ "[:-1]
@@ -45,4 +47,14 @@ def update_followers(username, new_follower_list):
     text = "\n".join(new_follower_list)
     file.write(text)
     file.close()
+
+
+def get_followers(username):
+    backslash = r"\ "[:-1]
+    file = open(f"{get_parsed_cwd()}\Latest_Followers"+ backslash +f"{username}.txt", "r")
+    follower_list = file.read().split("\n")
+    file.close()
+
+    return follower_list
+
 
