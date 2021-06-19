@@ -13,10 +13,13 @@ def check_for_word(bot: instabot, word: str):
 def check_if_followed(bot: instabot, username: str):
     """Checks if the person has already been followed. If not, the bot follows the person. If the account is
     immediately followed, returns true. If the request is pending, returns false. """
-    private = bot.isit_private(username)
 
-    if private:
-        bot.follow(username)
+
+    # private = bot.isit_private(username)
+    #
+    # if private:
+
+    bot.follow(username)
 
     requested_in_page = check_for_word(bot, "requested") #if requested is inside the page, then we
     return not requested_in_page
