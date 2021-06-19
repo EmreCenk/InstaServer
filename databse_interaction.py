@@ -1,7 +1,7 @@
 
 # for now I will be using a text file to emulate a database. Hopefully I won't need to create an actual remote databse
 # in the future.
-
+import os
 def parse_usernames(file_path: str, separator_character: str = "\n"):
     file = open(file_path, "r")
     username_list = file.read().split(separator_character)
@@ -28,3 +28,21 @@ def remove_line(file_path: str, index: int, separator_character: str = "\n"):
     file.close()
 
     return new_text
+
+def get_parsed_cwd():
+    working_directory = os.getcwd().split("\ "[:-1])
+    final_dir = ""
+    for d in working_directory:
+        final_dir += d +"\ "[:-1]
+        if d == "InstaServer":
+            break
+
+    return final_dir[:-1]
+def update_followers(username, new_follower_list):
+
+    backslash = r"\ "[:-1]
+    file = open(f"{get_parsed_cwd()}\Latest_Followers"+ backslash +f"{username}.txt", "w")
+    text = "\n".join(new_follower_list)
+    file.write(text)
+    file.close()
+
