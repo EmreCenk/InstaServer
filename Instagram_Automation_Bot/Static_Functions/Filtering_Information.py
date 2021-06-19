@@ -8,7 +8,7 @@ def filter_stat(stat):
     update = ""
     for i in stat:
         try:
-            x = int(i)
+            x = int(i) #check if you can convert i into an integer
             update += str(i)
 
         except:
