@@ -80,20 +80,13 @@ def follow(self, person):
         return False
 
 
-    # if now-start>=self.loop_time_out:
-    #     if self.broken_link():
-    #         return False
-    #     elif self.broken_link(): #checking again
-    #         return False
-    #     else:
-    #         return self.follow(person=person)
-
-
     buttons[0].click()
-    self.browser.implicitly_wait(1)
+    while "follow" in buttons[0].text.lower():
+        sleep(0.2)
+
     self.actionsdone += 1
 
-    print("Followed " + str(person) )
+    print("Followed " + str(person))
     return True
 
 

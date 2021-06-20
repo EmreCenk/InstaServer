@@ -19,9 +19,10 @@ def check_if_followed(bot: instabot, username: str):
     #
     # if private:
 
-    bot.follow(username)
+    bot.follow(username) #if the person is already followed then this does nothing. Otherwise it sends a request
 
-    requested_in_page = check_for_word(bot, "requested") #if requested is inside the page, then we
+    requested_in_page = check_for_word(bot, "requested") #if requested is inside the page, then we have sent a follow
+    # request. If request isn't in the page, then we have followed this person
     return not requested_in_page
 
     # Alternate way to check:
