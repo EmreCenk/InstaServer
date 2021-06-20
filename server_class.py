@@ -6,6 +6,7 @@ class Server:
 
     def __init__(self, username, password):
         self.bot = instabot(username, password)
+        self.bot.signin()
 
     def check_if_stats_accesible(self, username):
         return utils.check_if_followed(self.bot, username)
@@ -26,6 +27,9 @@ class Server:
         # Converting both of them to sets reduce the time complexity to O(n) instead of O(n^2)
         # (since lookup times for sets are O(1))
         old_followers = set(dbi.get_followers(username))
+        if len(old_followers) == 0:
+            dbi.update_followers(username, self.bot.getstat(username, "followers"))
+
         new_followers = set(self.bot.getstat(username, followersorfollowing="followers"))
 
         unfollowed_people = set()
@@ -38,5 +42,13 @@ class Server:
 
         dbi.update_followers(username, new_followers)
 
+
+
+
+
         return unfollowed_people
 
+if __name__ == '__main__':
+    from Instagram_Automation_Bot.info import username, password
+    self = Server(username, password)
+    self.get_unfollowed_and_update_database("emre.cenk99")

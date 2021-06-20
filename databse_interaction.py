@@ -51,7 +51,12 @@ def update_followers(username, new_follower_list):
 
 def get_followers(username):
     backslash = r"\ "[:-1]
-    file = open(f"{get_parsed_cwd()}\Latest_Followers"+ backslash +f"{username}.txt", "r")
+
+    try:
+        file = open(f"{get_parsed_cwd()}\Latest_Followers"+ backslash +f"{username}.txt", "r")
+    except FileNotFoundError:
+        return []
+
     follower_list = file.read().split("\n")
     file.close()
 

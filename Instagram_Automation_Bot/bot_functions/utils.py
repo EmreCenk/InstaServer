@@ -5,6 +5,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 
 def scrolldown(self, numpeople, classname="FPmhX"):
+
     """This function is made to scroll down the list of followers/following for a person. It can be tweaked to
     become a regular automatic scroller.
     After scrolling all the way down, it return an array of the people that it has scrolled through."""
