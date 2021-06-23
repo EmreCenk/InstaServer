@@ -32,5 +32,4 @@ def check_if_followed(bot: instabot, username: str):
 
 
 if __name__ == '__main__':
-    bot = instabot(bot_username, bot_password)
-    bot.signin()
+    import Instagram_Automation_Bot.procedural_check

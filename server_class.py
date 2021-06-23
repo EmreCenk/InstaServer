@@ -63,12 +63,12 @@ class Server:
         dbi.update_followers(username, new_followers)
         return unfollowed_people
 
-    def start_server(self):
+    def start_server(self, sleep_time = 10):
         while True:
-            self.maintain_users("usernames_to_check", sleep_between_users=10)
+            self.maintain_users("usernames_to_check", sleep_between_users=sleep_time)
 
 
 if __name__ == '__main__':
     from Instagram_Automation_Bot.info import bot_username, bot_password
     self = Server(bot_username, bot_password)
-    self.start_server()
+    self.start_server(20)

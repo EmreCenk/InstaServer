@@ -1,9 +1,9 @@
 
 
-from Instagram_Bot_Class import instabot
-from Static_Functions import Processing_Stats as pt
-from info import username,password
-user="emre.cenk99"
+from Instagram_Automation_Bot.Instagram_Bot_Class import instabot
+from Instagram_Automation_Bot.Static_Functions import Processing_Stats as pt
+from Instagram_Automation_Bot.info import username,password
+user="ceydaerszl"
 
 bot=instabot(username,password)
 

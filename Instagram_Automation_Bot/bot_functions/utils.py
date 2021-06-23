@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
 
-def scrolldown(self, numpeople, classname="FPmhX"):
+def scrolldown(self, numpeople, classname="FPmhX", people_number_flex = 7):
 
     """This function is made to scroll down the list of followers/following for a person. It can be tweaked to
     become a regular automatic scroller.
@@ -25,10 +25,11 @@ def scrolldown(self, numpeople, classname="FPmhX"):
         thingtodo.send_keys(Keys.TAB).perform()
 
         now = self.browser.find_elements_by_class_name(classname)
-        while len(now) <= numpeople - 4:
+        while (len(now) <= numpeople - people_number_flex):
             now = self.browser.find_elements_by_class_name(classname)
             thingtodo.send_keys(Keys.END).perform()
             sleep(self.scrollsleep)
+            print(len(now))
 
         now = self.browser.find_elements_by_class_name(classname)
         final = []
