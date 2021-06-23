@@ -63,4 +63,13 @@ def get_followers(username):
     return follower_list
 
 
+def add_username(username, name = "usernames_to_check"):
+    path = get_parsed_cwd()+ "\ "[:-1] + name
+    file = open(path,"a+")
+    file.write("\n" + username)
+    file.close()
+
+if __name__ == '__main__':
+    add_username("deneme")
+
 
