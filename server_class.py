@@ -69,6 +69,6 @@ class Server:
 
 
 if __name__ == '__main__':
-    from Instagram_Automation_Bot.info import bot_username, bot_password
-    self = Server(bot_username, bot_password)
+    from Instagram_Automation_Bot.info import username, password
+    self = Server(username, password)
     self.start_server(20)

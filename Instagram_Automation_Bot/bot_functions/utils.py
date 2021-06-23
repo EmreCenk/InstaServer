@@ -3,7 +3,7 @@
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
-
+from time import perf_counter
 def scrolldown(self, numpeople, classname="FPmhX", people_number_flex = 7):
 
     """This function is made to scroll down the list of followers/following for a person. It can be tweaked to
@@ -25,11 +25,21 @@ def scrolldown(self, numpeople, classname="FPmhX", people_number_flex = 7):
         thingtodo.send_keys(Keys.TAB).perform()
 
         now = self.browser.find_elements_by_class_name(classname)
-        while (len(now) <= numpeople - people_number_flex):
+        past_num = len(now) + 2
+        changetime = perf_counter()
+        while (len(now) <= numpeople - people_number_flex) and (past_num != len(now) or perf_counter() -
+                                                                changetime<10):
+
+            if past_num != len(now):
+                changetime = perf_counter()
+                print("Yes")
+
+
+            past_num = len(now)
             now = self.browser.find_elements_by_class_name(classname)
             thingtodo.send_keys(Keys.END).perform()
             sleep(self.scrollsleep)
-            print(len(now))
+            # print(len(now))
 
         now = self.browser.find_elements_by_class_name(classname)
         final = []

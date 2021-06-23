@@ -69,7 +69,7 @@ def add_username(username, name = "usernames_to_check"):
     file.write("\n" + username)
     file.close()
 
-if __name__ == '__main__':
-    add_username("deneme")
+# if __name__ == '__main__':
+#     add_username("deneme")
 
 
